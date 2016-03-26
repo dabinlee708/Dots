@@ -15,7 +15,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".loadingActivity"></activity>
+        <activity android:name=".loadingActivity" />
+        <activity android:name=".paymentActivity"></activity>
     </application>
 
 </manifest>

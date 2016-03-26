@@ -21,6 +21,14 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+
+        Button registerBtn = (Button)findViewById(R.id.registerBtn);
+        registerBtn.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,paymentActivity.class));
+            }
+
+        });
     }
 
 
