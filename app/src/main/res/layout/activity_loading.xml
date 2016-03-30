@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@drawable/loginscreen"
+    android:background="@drawable/loginScreen"
     tools:context="com.projects.ui.tldr.loadingActivity"
     android:orientation="vertical">
 
@@ -36,7 +36,7 @@
         android:id="@+id/imageView"
         android:layout_gravity="center_horizontal"
         android:gravity="center"
-        android:src="@drawable/hh"
+        android:src="@drawable/hhCircle"
         android:layout_marginTop="10dp" />
 
 
