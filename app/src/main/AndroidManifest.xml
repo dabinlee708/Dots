@@ -16,7 +16,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".loadingActivity" />
-        <activity android:name=".paymentActivity"></activity>
+        <activity android:name=".paymentActivity" />
+        <activity android:name=".CalendarActivity"></activity>
     </application>
 
 </manifest>
