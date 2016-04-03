@@ -89,7 +89,6 @@
             android:layout_column="1"
             android:layout_gravity="left|top"
             android:layout_row="2"
-            android:text="0900"
             android:padding="10dp" />
 
         <TextView
