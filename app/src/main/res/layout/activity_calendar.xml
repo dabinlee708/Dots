@@ -18,7 +18,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@drawable/circlebutton"
-            android:paddingTop="10dp"
+            android:paddingTop="8dp"
             android:text="ALL"
             android:textColor="#fff"
             android:layout_marginRight="5dp" />
@@ -27,7 +27,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@drawable/circlebutton"
-            android:paddingTop="10dp"
+            android:paddingTop="8dp"
             android:text="ISTD"
             android:textColor="#fff"
             android:layout_marginRight="5dp" />
@@ -36,7 +36,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@drawable/circlebutton"
-            android:paddingTop="10dp"
+            android:paddingTop="8dp"
             android:text="EPD"
             android:textColor="#fff"
             android:layout_marginRight="5dp" />
@@ -45,7 +45,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@drawable/circlebutton"
-            android:paddingTop="10dp"
+            android:paddingTop="8dp"
             android:text="ASD"
             android:textColor="#fff"
             android:layout_marginRight="5dp" />
@@ -54,7 +54,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@drawable/circlebutton"
-            android:paddingTop="10dp"
+            android:paddingTop="8dp"
             android:text="ESD"
             android:textColor="#fff"
             android:layout_marginRight="5dp" />
@@ -62,7 +62,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@drawable/circlebutton"
-            android:paddingTop="10dp"
+            android:paddingTop="8dp"
             android:text="5th"
             android:textColor="#fff"/>
     </LinearLayout>
