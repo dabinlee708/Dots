@@ -7,11 +7,14 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
         android:text="Details" />
 
     <ImageView
-        android:layout_width="400dp"
-        android:layout_height="400dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/imageView"
         android:layout_gravity="center_horizontal"
         android:gravity="center"
@@ -19,8 +22,15 @@
         android:layout_margin="5dp" />
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="USER INTERFACE BY HYOWON \n Date:12/01/16 \nPeople Attending:30 \nDetails: Ipsum Lorem sjahfkjdfjhkjgdfkjgdfkgkfgkfdkgkfdgkld  " />
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="10dp"
+        android:layout_gravity="center"
+        android:id="@+id/title_of_event"
+        android:text="USER INTERFACE BY HYOWON \nDate:12/01/16 \nPeople Attending:30 \nDetails: Ipsum Lorem"
+        />
 
 </LinearLayout>
