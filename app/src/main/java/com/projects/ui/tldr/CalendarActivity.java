@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 public class CalendarActivity extends AppCompatActivity {
@@ -23,25 +24,38 @@ public class CalendarActivity extends AppCompatActivity {
         Log.d("mytag", "onClick:UI" + v.getId());
         TextView text = (TextView) findViewById(v.getId());
 
-        LinearLayout event_details = new LinearLayout(this);
-        TextView event_name = new TextView(this);
-        event_name.setText(text.getText());
-
-        Button button = new Button(this);
-        button.setText("More Details");
-        button.setOnClickListener(new View.OnClickListener() {
+//        LinearLayout event_details = new LinearLayout(this);
+//        TextView event_name = new TextView(this);
+//        event_name.setText(text.getText());
+//
+//        Button button = new Button(this);
+//        button.setText("More Details");
+//        button.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                startActivity(new Intent(CalendarActivity.this, EventActivity.class));
+//            }
+//
+//        });
+//        button.setId(View.generateViewId());
+//
+//        event_details.addView(event_name);
+//        event_details.addView(button);
+//
+//        LinearLayout layout = (LinearLayout) findViewById(R.id.linlayout);
+//        layout.addView(event_details);
+        TextView selection = (TextView) findViewById(R.id.selected);
+        selection.setText(text.getText());
+        Button btnDetails = (Button) findViewById(R.id.button);
+        btnDetails.setVisibility(v.VISIBLE);
+        btnDetails.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 startActivity(new Intent(CalendarActivity.this, EventActivity.class));
             }
 
         });
-        button.setId(View.generateViewId());
+        ScrollView scr = (ScrollView) findViewById(R.id.scrlayout);
+        scr.fullScroll(ScrollView.FOCUS_DOWN);
 
-        event_details.addView(event_name);
-        event_details.addView(button);
-
-        LinearLayout layout = (LinearLayout) findViewById(R.id.linlayout);
-        layout.addView(event_details);
 
     }
 }
