@@ -32,9 +32,14 @@ public class EventActivity extends AppCompatActivity {
     public void onClick(View v) {
         Log.d("mytag", "onClick:UI" + v.getId());
         TextView text = (TextView) findViewById(v.getId());
-//        title_of_event.setText(text.getText());
-        Button btnDetails = (Button) findViewById(R.id.button);
-        btnDetails.setVisibility(v.VISIBLE);
+        Button btnConfirmation = (Button) findViewById(R.id.confirmation);
+        btnConfirmation.setVisibility(v.VISIBLE);
+        btnConfirmation.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Log.d("mytag","onclickclickclick"+ v.getId());
+                startActivity(new Intent(EventActivity.this, paymentActivity.class));
+            }
+        });
 
     }
 }
