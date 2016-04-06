@@ -1,5 +1,6 @@
 package com.projects.ui.tldr;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -38,37 +39,63 @@ public class CalendarActivity extends AppCompatActivity {
         Log.d("mytag", "onClick:UI" + v.getId());
         TextView text = (TextView) findViewById(v.getId());
 
-//        LinearLayout event_details = new LinearLayout(this);
-//        TextView event_name = new TextView(this);
-//        event_name.setText(text.getText());
-//
-//        Button button = new Button(this);
-//        button.setText("More Details");
-//        button.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                startActivity(new Intent(CalendarActivity.this, EventActivity.class));
-//            }
-//
-//        });
-//        button.setId(View.generateViewId());
-//
-//        event_details.addView(event_name);
-//        event_details.addView(button);
-//
-//        LinearLayout layout = (LinearLayout) findViewById(R.id.linlayout);
-//        layout.addView(event_details);
         final TextView selection = (TextView) findViewById(R.id.selected);
         selection.setText(text.getText());
-        Button btnDetails = (Button) findViewById(R.id.button);
-        btnDetails.setVisibility(v.VISIBLE);
-        btnDetails.setOnClickListener(new View.OnClickListener() {
+
+        final Dialog dialog = new Dialog(CalendarActivity.this);
+        // Include dialog.xml file
+        dialog.setContentView(R.layout.dialog);
+        // Set dialog title
+        dialog.setTitle("Custom Dialog");
+
+        // set values for custom dialog components - text, image and button
+        TextView title = (TextView) dialog.findViewById(R.id.title);
+        title.setText(selection.getText());
+        ImageView image = (ImageView) dialog.findViewById(R.id.logo);
+        image.setImageResource(R.drawable.noon);
+        ImageView image2 = (ImageView) dialog.findViewById(R.id.logo2);
+        image2.setImageResource(R.drawable.money);
+        ImageView image3 = (ImageView) dialog.findViewById(R.id.logo3);
+        image3.setImageResource(R.drawable.night);
+
+        dialog.show();
+
+        Button accept = (Button) dialog.findViewById(R.id.acceptButton);
+        // if decline button is clicked, close the custom dialog
+        accept.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
-//                startActivity(new Intent(CalendarActivity.this, EventActivity.class));
+                // Close dialog
+                dialog.dismiss();
+            }
+        });
+
+
+        Button details = (Button) dialog.findViewById(R.id.detailsButton);
+        // if decline button is clicked, close the custom dialog
+        details.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Close dialog
                 Intent myIntent = new Intent(CalendarActivity.this, EventActivity.class);
                 myIntent.putExtra("T", selection.getText());
                 startActivity(myIntent);
+
             }
         });
+
+//        TextView selection = (TextView) findViewById(R.id.selected);
+//        selection.setText(text.getText());
+//        Button btnDetails = (Button) findViewById(R.id.button);
+//        btnDetails.setVisibility(v.VISIBLE);
+//        btnDetails.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                Intent myIntent = new Intent(CalendarActivity.this, EventActivity.class);
+//                myIntent.putExtra("T", selection.getText());
+//                startActivity(myIntent);
+//            }
+//
+//        });
         ScrollView scr = (ScrollView) findViewById(R.id.scrlayout);
         scr.fullScroll(ScrollView.FOCUS_DOWN);
 
