@@ -43,15 +43,17 @@ public class CalendarActivity extends AppCompatActivity {
 //
 //        LinearLayout layout = (LinearLayout) findViewById(R.id.linlayout);
 //        layout.addView(event_details);
-        TextView selection = (TextView) findViewById(R.id.selected);
+        final TextView selection = (TextView) findViewById(R.id.selected);
         selection.setText(text.getText());
         Button btnDetails = (Button) findViewById(R.id.button);
         btnDetails.setVisibility(v.VISIBLE);
         btnDetails.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startActivity(new Intent(CalendarActivity.this, EventActivity.class));
+//                startActivity(new Intent(CalendarActivity.this, EventActivity.class));
+                Intent myIntent = new Intent(CalendarActivity.this, EventActivity.class);
+                myIntent.putExtra("T", selection.getText());
+                startActivity(myIntent);
             }
-
         });
         ScrollView scr = (ScrollView) findViewById(R.id.scrlayout);
         scr.fullScroll(ScrollView.FOCUS_DOWN);

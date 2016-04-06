@@ -262,9 +262,6 @@
             android:clickable="true"
             android:id="@+id/study"/>
 
-
-
-
     </GridLayout>
     <LinearLayout
         android:layout_width="match_parent"
