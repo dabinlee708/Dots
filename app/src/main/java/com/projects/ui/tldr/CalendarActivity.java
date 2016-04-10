@@ -17,6 +17,9 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import java.sql.Array;
+import java.util.ArrayList;
+
 public class CalendarActivity extends AppCompatActivity{
     private float x1,x2;
     static final int MIN_DISTANCE = 150;
@@ -31,12 +34,64 @@ public class CalendarActivity extends AppCompatActivity{
                 if (toolbar.getVisibility() == View.GONE) {
                     toolbar.setVisibility(View.VISIBLE);
                     caret.setImageResource(R.drawable.caretup);
-                } else{
+                } else {
                     toolbar.setVisibility(View.GONE);
                     caret.setImageResource(R.drawable.caretdown);
                 }
             }
         });
+
+
+        final Button[] blist = {(Button)findViewById(R.id.ISTD),
+                (Button)findViewById(R.id.EPD),
+                (Button)findViewById(R.id.ASD),
+                (Button)findViewById(R.id.ESD),
+                (Button)findViewById(R.id.fifth)};
+        final TextView[] tlist = {(TextView) findViewById(R.id.musicbox),
+                            (TextView) findViewById(R.id.study),
+                            (TextView) findViewById(R.id.chill)};
+
+        //SET ONCLICK FUNCTION FOR ALL
+        Button b = (Button) findViewById(R.id.ALL);
+        b.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                v.setBackgroundResource(R.drawable.circlebuttonselected);
+                for (Button i: blist){
+                    i.setBackgroundResource(R.drawable.circlebuttondeselected);
+                }
+                for (TextView j: tlist){
+                    j.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        //SET ONCLICK FUNCTION FOR ALL OTHER BUTTONS
+        for (Button i:blist){
+            i.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Button b = (Button)v;
+                    Log.d("mytag", "onClick:button" + b.getText());
+
+                    findViewById(R.id.ALL).setBackgroundResource(R.drawable.circlebuttondeselected);
+                    v.setBackgroundResource(R.drawable.circlebuttonselected);
+                    for (TextView j: tlist) {
+                        j.setVisibility(View.GONE);
+                    }
+
+                    //THIS LINE OF CODE DOESN'T WORK FOR SOME REASON
+                    if(b.getText()=="ISTD"){
+                        findViewById(R.id.study).setVisibility(View.VISIBLE);
+                    }
+                    //THIS LINE OF CODE DOESN'T WROK
+                    else if(b.getText()=="5th"){
+                        findViewById(R.id.chill).setVisibility(View.VISIBLE);
+                        findViewById(R.id.musicbox).setVisibility(View.VISIBLE);
+                    }
+                    else{
+
+                    }
+                }
+            });
+        }
     }
 
     @Override
@@ -66,8 +121,28 @@ public class CalendarActivity extends AppCompatActivity{
         return super.onTouchEvent(event);
     }
 
+    public void onClick(Button b){
+        Log.d("mytag", "onClick:button" + b.getText());
+        Button[] blist = {(Button)findViewById(R.id.ISTD),
+                (Button)findViewById(R.id.EPD),
+                (Button)findViewById(R.id.ASD),
+                (Button)findViewById(R.id.ESD),
+                (Button)findViewById(R.id.fifth)};
+
+        if (b.getText()=="ALL"){
+            for (Button i : blist){
+                i.setBackgroundResource(R.drawable.circlebuttondeselected);
+            }
+        }
+        else{
+            Button button = (Button)findViewById(R.id.ALL);
+            button.setBackgroundResource(R.drawable.circlebuttondeselected);
+            b.setBackgroundResource(R.drawable.circlebuttonselected);
+        }
+    }
+
     public void onClick(View v) {
-        Log.d("mytag", "onClick:UI" + v.getId());
+        Log.d("mytag", "onClick:text" + v.getId());
         TextView text = (TextView) findViewById(v.getId());
 
         final TextView selection = (TextView) findViewById(R.id.selected);
@@ -124,4 +199,7 @@ public class CalendarActivity extends AppCompatActivity{
 
 
     }
+
+
+
 }

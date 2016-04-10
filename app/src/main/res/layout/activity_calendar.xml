@@ -27,54 +27,60 @@
             <Button
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:background="@drawable/circlebutton"
+                android:background="@drawable/circlebuttonselected"
                 android:paddingTop="8dp"
                 android:text="ALL"
                 android:textColor="#fff"
-                android:layout_marginRight="5dp" />
+                android:layout_marginRight="5dp"
+                android:id="@+id/ALL"/>
 
             <Button
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:background="@drawable/circlebutton"
+                android:background="@drawable/circlebuttondeselected"
                 android:paddingTop="8dp"
                 android:text="ISTD"
                 android:textColor="#fff"
-                android:layout_marginRight="5dp" />
+                android:layout_marginRight="5dp"
+                android:id="@+id/ISTD"/>
 
             <Button
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:background="@drawable/circlebutton"
+                android:background="@drawable/circlebuttondeselected"
                 android:paddingTop="8dp"
                 android:text="EPD"
                 android:textColor="#fff"
-                android:layout_marginRight="5dp" />
+                android:layout_marginRight="5dp"
+                android:id="@+id/EPD"/>
 
             <Button
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:background="@drawable/circlebutton"
+                android:background="@drawable/circlebuttondeselected"
                 android:paddingTop="8dp"
                 android:text="ASD"
                 android:textColor="#fff"
-                android:layout_marginRight="5dp" />
+                android:layout_marginRight="5dp"
+                android:id="@+id/ASD"/>
 
             <Button
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:background="@drawable/circlebutton"
+                android:background="@drawable/circlebuttondeselected"
                 android:paddingTop="8dp"
                 android:text="ESD"
                 android:textColor="#fff"
-                android:layout_marginRight="5dp" />
+                android:layout_marginRight="5dp"
+                android:id="@+id/ESD"/>
             <Button
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:background="@drawable/circlebutton"
+                android:background="@drawable/circlebuttondeselected"
                 android:paddingTop="8dp"
                 android:text="5th"
-                android:textColor="#fff"/>
+                android:textColor="#fff"
+                android:id="@+id/fifth"/>
         </LinearLayout>
         <ImageView
             android:layout_width="25dp"
