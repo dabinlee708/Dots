@@ -65,16 +65,17 @@ public class paymentActivity extends AppCompatActivity {
 
         mContext = this;
 
-        mSpassFingerprint = new SpassFingerprint(paymentActivity.this);
-        mSpassFingerprint.setDialogBgTransparency(0);
-        spass = new Spass();
         try{
+            mSpassFingerprint = new SpassFingerprint(paymentActivity.this);
+            mSpassFingerprint.setDialogBgTransparency(0);
+            spass = new Spass();
             spass.initialize(mContext);
             mSpassFingerprint.startIdentifyWithDialog(mContext, listener, successAuth );
         } catch (Exception e){
             Toast.makeText(paymentActivity.this, "Automatic override for authetntication", Toast.LENGTH_LONG).show();
             successAuth=true;
         }
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
