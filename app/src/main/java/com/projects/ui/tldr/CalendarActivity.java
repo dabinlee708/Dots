@@ -1,6 +1,7 @@
 package com.projects.ui.tldr;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.sql.Array;
 import java.util.ArrayList;
@@ -105,41 +107,39 @@ public class CalendarActivity extends AppCompatActivity{
             case MotionEvent.ACTION_UP:
                 x2 = event.getX();
                 float deltaX = x2 - x1;
-                if (Math.abs(deltaX) > MIN_DISTANCE)
+                if (Math.abs(deltaX) > MIN_DISTANCE && deltaX < 0)
                 {
-
-                    Intent myIntent = new Intent(CalendarActivity.this, EventActivity.class);
-                    myIntent.putExtra("T", "test");
-                    startActivity(myIntent);
+                    setContentView(R.layout.activity_calendar2);
                 }
-                else
+                else if (Math.abs(deltaX) > MIN_DISTANCE && deltaX > 0)
                 {
-                    // consider as something else - a screen tap for example
+                    setContentView(R.layout.activity_calendar);
                 }
                 break;
+
         }
         return super.onTouchEvent(event);
     }
 
-    public void onClick(Button b){
-        Log.d("mytag", "onClick:button" + b.getText());
-        Button[] blist = {(Button)findViewById(R.id.ISTD),
-                (Button)findViewById(R.id.EPD),
-                (Button)findViewById(R.id.ASD),
-                (Button)findViewById(R.id.ESD),
-                (Button)findViewById(R.id.fifth)};
-
-        if (b.getText()=="ALL"){
-            for (Button i : blist){
-                i.setBackgroundResource(R.drawable.circlebuttondeselected);
-            }
-        }
-        else{
-            Button button = (Button)findViewById(R.id.ALL);
-            button.setBackgroundResource(R.drawable.circlebuttondeselected);
-            b.setBackgroundResource(R.drawable.circlebuttonselected);
-        }
-    }
+//    public void onClick(Button b){
+//        Log.d("mytag", "onClick:button" + b.getText());
+//        Button[] blist = {(Button)findViewById(R.id.ISTD),
+//                (Button)findViewById(R.id.EPD),
+//                (Button)findViewById(R.id.ASD),
+//                (Button)findViewById(R.id.ESD),
+//                (Button)findViewById(R.id.fifth)};
+//
+//        if (b.getText()=="ALL"){
+//            for (Button i : blist){
+//                i.setBackgroundResource(R.drawable.circlebuttondeselected);
+//            }
+//        }
+//        else{
+//            Button button = (Button)findViewById(R.id.ALL);
+//            button.setBackgroundResource(R.drawable.circlebuttondeselected);
+//            b.setBackgroundResource(R.drawable.circlebuttonselected);
+//        }
+//    }
 
     public void onClick(View v) {
         Log.d("mytag", "onClick:text" + v.getId());
