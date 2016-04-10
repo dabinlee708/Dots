@@ -69,7 +69,7 @@ public class CalendarActivity extends AppCompatActivity{
             i.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     Button b = (Button)v;
-                    Log.d("mytag", "onClick:button" + b.getText());
+                    Log.d("mytag", "onClick:button" +b.getText());
 
                     findViewById(R.id.ALL).setBackgroundResource(R.drawable.circlebuttondeselected);
                     v.setBackgroundResource(R.drawable.circlebuttonselected);
@@ -78,11 +78,11 @@ public class CalendarActivity extends AppCompatActivity{
                     }
 
                     //THIS LINE OF CODE DOESN'T WORK FOR SOME REASON
-                    if(b.getText()=="ISTD"){
+                    if(b.getText().equals("ISTD")){
                         findViewById(R.id.study).setVisibility(View.VISIBLE);
                     }
                     //THIS LINE OF CODE DOESN'T WROK
-                    else if(b.getText()=="5th"){
+                    else if(b.getText().equals("5th")){
                         findViewById(R.id.chill).setVisibility(View.VISIBLE);
                         findViewById(R.id.musicbox).setVisibility(View.VISIBLE);
                     }
@@ -166,7 +166,7 @@ public class CalendarActivity extends AppCompatActivity{
         ImageView image3 = (ImageView) dialog.findViewById(R.id.logo3);
         image3.setImageResource(R.drawable.nomoney);
         ImageView image4 = (ImageView) dialog.findViewById(R.id.logo4);
-        image4.setImageResource(R.drawable.nomoney);
+        image4.setImageResource(R.drawable.night);
 
         dialog.show();
 
@@ -193,6 +193,8 @@ public class CalendarActivity extends AppCompatActivity{
 
             }
         });
+
+
 
 //        ScrollView scr = (ScrollView) findViewById(R.id.scrlayout);
 //        scr.fullScroll(ScrollView.FOCUS_DOWN);
