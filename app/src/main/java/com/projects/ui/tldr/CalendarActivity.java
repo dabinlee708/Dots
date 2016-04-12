@@ -90,17 +90,15 @@ public class CalendarActivity extends AppCompatActivity{
                         j.setVisibility(View.GONE);
                     }
 
-                    //THIS LINE OF CODE DOESN'T WORK FOR SOME REASON
                     if(b.getText().equals("ISTD")){
                         findViewById(R.id.study).setVisibility(View.VISIBLE);
                     }
-                    //THIS LINE OF CODE DOESN'T WROK
+
                     else if(b.getText().equals("5th")){
                         findViewById(R.id.chill).setVisibility(View.VISIBLE);
                         findViewById(R.id.musicbox).setVisibility(View.VISIBLE);
                     }
                     else{
-
                     }
                 }
             });
@@ -143,25 +141,30 @@ public class CalendarActivity extends AppCompatActivity{
         // Include dialog.xml file
         dialog.setContentView(R.layout.dialog);
         // Set dialog title
-        dialog.setTitle("Custom Dialog");
+
 
         // set values for custom dialog components - text, image and button
-        TextView title = (TextView) dialog.findViewById(R.id.title);
-        title.setText(selection.getText());
+        //TextView title = (TextView) dialog.findViewById(R.id.title);
+        dialog.setTitle(selection.getText());
+//        title.setText(selection.getText());
+        //title.setGravity(View.TEXT_ALIGNMENT_CENTER);
         TextView eventDetails = (TextView) dialog.findViewById(R.id.details);
         eventDetails.setText("Need to dynamically add hardcoded details for the events based on the available choices.\nPerhaps choose a few to demo.");
-        ImageView image = (ImageView) dialog.findViewById(R.id.logo);
-        image.setImageResource(R.drawable.noon);
-        ImageView image2 = (ImageView) dialog.findViewById(R.id.logo2);
-        image2.setImageResource(R.drawable.money);
-        ImageView image3 = (ImageView) dialog.findViewById(R.id.logo3);
-        image3.setImageResource(R.drawable.nomoney);
-        ImageView image4 = (ImageView) dialog.findViewById(R.id.logo4);
-        image4.setImageResource(R.drawable.night);
+        eventDetails.setGravity(View.TEXT_ALIGNMENT_CENTER);
+        ImageView image = (ImageView) dialog.findViewById(R.id.logo2);
+        image.setImageResource(R.drawable.money);
+        ImageView image2 = (ImageView) dialog.findViewById(R.id.logo3);
+        image2.setImageResource(R.drawable.people9);
+//        ImageView image3 = (ImageView) dialog.findViewById(R.id.logo3);
+//        image3.setImageResource(R.drawable.nomoney);
+//        ImageView image4 = (ImageView) dialog.findViewById(R.id.logo4);
+//        image4.setImageResource(R.drawable.night);
+
 
         dialog.show();
 
         Button accept = (Button) dialog.findViewById(R.id.acceptButton);
+        accept.setBackgroundResource(R.drawable.tick);
         // if decline button is clicked, close the custom dialog
         accept.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -172,6 +175,7 @@ public class CalendarActivity extends AppCompatActivity{
         });
 
         Button details = (Button) dialog.findViewById(R.id.detailsButton);
+        details.setBackgroundResource(R.drawable.redirect);
         // if decline button is clicked, close the custom dialog
         details.setOnClickListener(new View.OnClickListener() {
             @Override
