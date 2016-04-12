@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.projects.ui.tldr.CalendarActivity2"
     android:orientation="vertical"
-    android:background="#eeeeee">
+    android:background="#eeeeee"
+    android:weightSum="1">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -86,21 +87,23 @@
     <!--android:onClick="onClick"-->
     <!--android:clickable="true"-->
     <!--android:layout_marginTop="5dp" />-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="right"
-        android:paddingTop="10dp"
-        android:id="@+id/views">
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="horizontal"-->
+    <!--android:gravity="right"-->
+    <!--android:paddingTop="10dp"-->
+    <!--android:id="@+id/views">-->
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Month"
-            android:id="@+id/mthbtn" />
+    <!--<Button-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="Month"-->
+    <!--android:id="@+id/mthbtn" />-->
 
-    </LinearLayout>
+
+
+    <!--</LinearLayout>-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -119,12 +122,13 @@
             android:layout_height="wrap_content"
             android:text="Friday, 13 April 2016"
 
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:padding="5dp" />
+
     </LinearLayout>
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true"
+        android:layout_height="415dp"
         android:id="@+id/scrlayout">
 
         <GridLayout
@@ -358,6 +362,7 @@
                 android:clickable="true"
                 android:id="@+id/musicbox"/>
 
+
             <TextView
                 android:layout_column="4"
                 android:layout_row="5"
@@ -386,6 +391,7 @@
                 android:clickable="true"
                 android:id="@+id/study"
                 android:layout_width="49dp" />
+            -->
             <TextView
                 android:layout_column="6"
                 android:layout_row="6"
@@ -404,25 +410,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center_horizontal"
+        android:gravity="right"
         android:padding="10dp">
 
-        <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text=""
-            android:padding="10dp"
-            android:visibility="gone"
-            android:id="@+id/selected"/>
 
-        <Button
+        <android.support.design.widget.FloatingActionButton
+            android:layout_column="5"
+            android:layout_row="9"
+            android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="View Details"
-            android:visibility="gone"
-            android:id="@+id/button" />
+            android:layout_gravity="bottom|end"
+            android:src="@android:drawable/ic_menu_more"
+            app:layout_anchorGravity="bottom|left|end"/>
+
 
     </LinearLayout>
+
 
 </LinearLayout>
 

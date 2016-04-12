@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.provider.CalendarContract;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -102,28 +103,13 @@ public class CalendarActivity extends AppCompatActivity{
             }
         });
 
-//        Button tmr = (Button) findViewById(R.id.nextbtn);
-//        // if decline button is clicked, close the custom dialog
-//        tmr.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // Close dialog
-//                setContentView(R.layout.activity_calendar2);
-//
-//            }
-//        });
-//
-        Button nth = (Button) findViewById(R.id.mthbtn);
-        // if decline button is clicked, close the custom dialog
-        nth.setOnClickListener(new View.OnClickListener() {
-            @Override
+        FloatingActionButton myFab = (FloatingActionButton) findViewById(R.id.fab);
+        myFab.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent myIntent = new Intent(CalendarActivity.this, MonthView.class);
                 startActivity(myIntent);
-
             }
         });
-
 
         //SET ONCLICK FUNCTION FOR ALL OTHER BUTTONS
         for (Button i:blist){
@@ -184,8 +170,7 @@ public class CalendarActivity extends AppCompatActivity{
         Log.d("mytag", "onClick:text" + v.getId());
         TextView text = (TextView) findViewById(v.getId());
 
-        final TextView selection = (TextView) findViewById(R.id.selected);
-        selection.setText(text.getText());
+
 
         final Dialog dialog = new Dialog(CalendarActivity.this);
         // Include dialog.xml file
@@ -195,7 +180,7 @@ public class CalendarActivity extends AppCompatActivity{
 
         // set values for custom dialog components - text, image and button
         //TextView title = (TextView) dialog.findViewById(R.id.title);
-        dialog.setTitle(selection.getText());
+        dialog.setTitle(text.getText());
 //        title.setText(selection.getText());
         //title.setGravity(View.TEXT_ALIGNMENT_CENTER);
         TextView eventDetails = (TextView) dialog.findViewById(R.id.details);
@@ -253,9 +238,10 @@ public class CalendarActivity extends AppCompatActivity{
         details.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                TextView text = (TextView) findViewById(v.getId());
                 // Close dialog
                 Intent myIntent = new Intent(CalendarActivity.this, EventActivity.class);
-                myIntent.putExtra("T", selection.getText());
+                myIntent.putExtra("T", text.getText());
                 startActivity(myIntent);
 
             }
