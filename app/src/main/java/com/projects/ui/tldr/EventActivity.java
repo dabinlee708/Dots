@@ -25,9 +25,15 @@ public class EventActivity extends AppCompatActivity {
         titleEvent.setText(title);
 
         Button btnConfirmation = (Button) findViewById(R.id.confirmation);
+        Button btnrejection = (Button) findViewById(R.id.rejection);
         btnConfirmation.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 startActivity(new Intent(EventActivity.this, paymentActivity.class));
+            }
+        });
+        btnrejection.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                startActivity(new Intent(EventActivity.this, CalendarActivity2.class));
             }
         });
     }
