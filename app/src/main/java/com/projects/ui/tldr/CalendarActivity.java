@@ -1,5 +1,6 @@
 package com.projects.ui.tldr;
 
+import android.app.ActionBar;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -29,19 +30,19 @@ public class CalendarActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
-        final ImageView caret = (ImageView) findViewById(R.id.caret);
-        caret.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                LinearLayout toolbar = (LinearLayout) findViewById(R.id.toolbar);
-                if (toolbar.getVisibility() == View.GONE) {
-                    toolbar.setVisibility(View.VISIBLE);
-                    caret.setImageResource(R.drawable.caretup);
-                } else {
-                    toolbar.setVisibility(View.GONE);
-                    caret.setImageResource(R.drawable.caretdown);
-                }
-            }
-        });
+//        final ImageView caret = (ImageView) findViewById(R.id.caret);
+//        caret.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                LinearLayout toolbar = (LinearLayout) findViewById(R.id.toolbar);
+//                if (toolbar.getVisibility() == View.GONE) {
+//                    toolbar.setVisibility(View.VISIBLE);
+//                    caret.setImageResource(R.drawable.caretup);
+//                } else {
+//                    toolbar.setVisibility(View.GONE);
+//                    caret.setImageResource(R.drawable.caretdown);
+//                }
+//            }
+//        });
 
 
         final Button[] blist = {(Button)findViewById(R.id.ISTD),

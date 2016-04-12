@@ -82,16 +82,16 @@
                 android:textColor="#fff"
                 android:id="@+id/fifth"/>
         </LinearLayout>
-        <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:id="@+id/caret"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:src="@drawable/caretdown"
-            android:onClick="onClick"
-            android:clickable="true"
-            android:layout_marginTop="5dp" />
+        <!--<ImageView-->
+            <!--android:layout_width="25dp"-->
+            <!--android:layout_height="25dp"-->
+            <!--android:id="@+id/caret"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:gravity="center"-->
+            <!--android:src="@drawable/caretdown"-->
+            <!--android:onClick="onClick"-->
+            <!--android:clickable="true"-->
+            <!--android:layout_marginTop="5dp" />-->
 
         <GridLayout
             android:layout_width="wrap_content"
