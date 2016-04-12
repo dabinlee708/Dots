@@ -19,6 +19,6 @@ public class loadingActivity extends AppCompatActivity {
                 Intent i=new Intent(loadingActivity.this,CalendarActivity.class);
                 startActivity(i);
             }
-        }, 3000);
+        }, 500);
     }
 }

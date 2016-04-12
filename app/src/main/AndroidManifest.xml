@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.projects.ui.tldr">
 
-    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY"/>
+    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY" />
 
     <application
         android:allowBackup="true"
@@ -19,8 +19,9 @@
         </activity>
         <activity android:name=".loadingActivity" />
         <activity android:name=".paymentActivity" />
-        <activity android:name=".CalendarActivity"/>
-        <activity android:name=".EventActivity"/>
+        <activity android:name=".CalendarActivity" />
+        <activity android:name=".EventActivity" />
+        <activity android:name=".MonthView"></activity>
     </application>
 
 </manifest>
