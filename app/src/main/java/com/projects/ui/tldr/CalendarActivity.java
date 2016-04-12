@@ -168,7 +168,7 @@ public class CalendarActivity extends AppCompatActivity{
 
     public void onClick(View v) {
         Log.d("mytag", "onClick:text" + v.getId());
-        TextView text = (TextView) findViewById(v.getId());
+        final TextView text = (TextView) findViewById(v.getId());
 
 
 
