@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!--<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:fillViewport="true"-->
-    <!--android:id="@+id/scrlayout">-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:id="@+id/scrlayout">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -19,10 +19,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_horizontal"
-            android:padding="10dp"
-            android:visibility="gone"
+            android:paddingTop="30dp"
             android:id="@+id/toolbar">
-
 
             <Button
                 android:layout_width="50dp"
@@ -82,9 +80,46 @@
                 android:textColor="#fff"
                 android:id="@+id/fifth"/>
         </LinearLayout>
+        <!--<ImageView-->
+        <!--android:layout_width="25dp"-->
+        <!--android:layout_height="25dp"-->
+        <!--android:id="@+id/caret"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:gravity="center"-->
+        <!--android:src="@drawable/caretdown"-->
+        <!--android:onClick="onClick"-->
+        <!--android:clickable="true"-->
+        <!--android:layout_marginTop="5dp" />-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:paddingTop="10dp"
+            android:id="@+id/days">
+
+            <!--<Button-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Yest"-->
+                <!--android:id="@+id/prevbtn" />-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Friday, 13 April 2016"
+                android:textStyle="bold"/>
+            <!--<Button-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Tmr"-->
+                <!--android:id="@+id/nextbtn" />-->
+
+
+
+        </LinearLayout>
 
         <GridLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
@@ -172,41 +207,69 @@
                 android:padding="10dp" />
 
             <TextView
+                android:layout_column="1"
+                android:layout_gravity="left|top"
+                android:layout_row="12"
+                android:text="1900"
+                android:padding="10dp" />
+
+            <TextView
+                android:layout_column="1"
+                android:layout_gravity="left|top"
+                android:layout_row="13"
+                android:text="2000"
+                android:padding="10dp" />
+
+            <TextView
+                android:layout_column="1"
+                android:layout_gravity="left|top"
+                android:layout_row="14"
+                android:text="2100"
+                android:padding="10dp" />
+            <TextView
+                android:layout_column="1"
+                android:layout_gravity="left|top"
+                android:layout_row="15"
+                android:text="2200"
+                android:padding="10dp" />
+
+            <TextView
                 android:layout_column="2"
                 android:layout_gravity="start|top"
                 android:layout_row="1"
                 android:text="MY EVENTS"
                 android:padding="10dp"
                 android:textStyle="bold"/>
-            <!--<TextView-->
-                <!--android:layout_column="2"-->
-                <!--android:layout_row="3"-->
-                <!--android:text="UI"-->
-                <!--android:background="#FFA500"-->
-                <!--android:padding="10dp"-->
-                <!--android:layout_columnSpan="1"-->
-                <!--android:layout_rowSpan="2"-->
-                <!--android:layout_gravity="center_horizontal|fill"-->
-                <!--android:onClick="onClick"-->
-                <!--android:clickable="true"-->
-                <!--android:gravity="center"-->
-                <!--android:id="@+id/UI"/>-->
+            <TextView
+                android:layout_column="2"
+                android:layout_row="3"
+                android:text="UI"
+                android:background="#207178"
+                android:padding="10dp"
+                android:layout_columnSpan="1"
+                android:layout_rowSpan="2"
+                android:layout_gravity="center_horizontal|fill"
+                android:onClick="onClick"
+                android:clickable="true"
+                android:gravity="center"
+                android:id="@+id/UI"/>
 
             <TextView
-                android:layout_column="3"
+                android:layout_column="4"
                 android:layout_row="3"
                 android:background="#222d2d2d"
                 android:padding="10dp"
-                android:layout_columnSpan="3"
+                android:layout_columnSpan="4"
                 android:layout_rowSpan="2"
                 android:layout_gravity="center_horizontal|fill"
-                android:gravity="center" />
+                android:gravity="center"
+                android:layout_width="206dp" />
 
             <TextView
                 android:layout_column="2"
                 android:layout_row="5"
-                android:text="Capstone"
-                android:background="#FF0000"
+                android:text="Security"
+                android:background="#8caa8d"
                 android:padding="10dp"
                 android:layout_columnSpan="1"
                 android:layout_rowSpan="1"
@@ -217,11 +280,11 @@
                 android:id="@+id/Security"/>
 
             <TextView
-                android:layout_column="3"
+                android:layout_column="4"
                 android:layout_row="5"
                 android:background="#222d2d2d"
                 android:padding="10dp"
-                android:layout_columnSpan="3"
+                android:layout_columnSpan="4"
                 android:layout_gravity="center_horizontal|fill"
                 android:gravity="center"
                 android:layout_height="wrap_content" />
@@ -229,8 +292,8 @@
             <TextView
                 android:layout_column="2"
                 android:layout_row="8"
-                android:text="EM"
-                android:background="#fff000"
+                android:text="HASS"
+                android:background="#F5E9BE"
                 android:padding="10dp"
                 android:layout_columnSpan="1"
                 android:layout_rowSpan="1"
@@ -241,17 +304,29 @@
                 android:id="@+id/HASS"/>
 
             <TextView
-                android:layout_column="3"
+                android:layout_column="4"
                 android:layout_row="8"
                 android:background="#222d2d2d"
                 android:padding="10dp"
                 android:layout_columnSpan="3"
                 android:layout_gravity="center_horizontal|fill"
                 android:gravity="center"
-                android:layout_height="wrap_content" />
-
+                android:layout_height="wrap_content"
+                android:layout_width="232dp" />
             <TextView
                 android:layout_column="3"
+                android:layout_row="8"
+                android:background="#222d2d2d"
+                android:padding="10dp"
+                android:layout_columnSpan="1"
+                android:layout_gravity="center_horizontal|fill"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:width="30dp"/>
+
+            <TextView
+                android:layout_column="4"
                 android:gravity="center"
                 android:layout_columnSpan="3"
                 android:layout_gravity="fill_horizontal"
@@ -261,10 +336,10 @@
                 android:textStyle="bold"/>
 
             <TextView
-                android:layout_column="3"
+                android:layout_column="4"
                 android:layout_row="3"
                 android:text="MB"
-                android:background="#1114e1"
+                android:background="#88FF9666"
                 android:padding="10dp"
                 android:layout_columnSpan="1"
                 android:layout_rowSpan="1"
@@ -274,25 +349,25 @@
                 android:clickable="true"
                 android:id="@+id/musicbox"/>
 
-            <!--<TextView-->
-                <!--android:layout_column="4"-->
-                <!--android:layout_row="5"-->
-                <!--android:text="CT"-->
-                <!--android:background="#e111aa"-->
-                <!--android:padding="10dp"-->
-                <!--android:layout_columnSpan="1"-->
-                <!--android:layout_rowSpan="2"-->
-                <!--android:layout_gravity="fill"-->
-                <!--android:gravity="center"-->
-                <!--android:onClick="onClick"-->
-                <!--android:clickable="true"-->
-                <!--android:id="@+id/chill"/>-->
+            <TextView
+                android:layout_column="4"
+                android:layout_row="5"
+                android:text="CT"
+                android:background="#88174C4F"
+                android:padding="10dp"
+                android:layout_columnSpan="1"
+                android:layout_rowSpan="2"
+                android:layout_gravity="fill"
+                android:gravity="center"
+                android:onClick="onClick"
+                android:clickable="true"
+                android:id="@+id/chill"/>
 
             <TextView
                 android:layout_column="5"
                 android:layout_row="6"
                 android:text="ST"
-                android:background="#37e111"
+                android:background="#88a7e111"
                 android:padding="10dp"
                 android:layout_columnSpan="1"
                 android:layout_rowSpan="4"
@@ -300,7 +375,19 @@
                 android:gravity="center"
                 android:onClick="onClick"
                 android:clickable="true"
-                android:id="@+id/study"/>
+                android:id="@+id/study"
+                android:layout_width="49dp" />
+            <TextView
+                android:layout_column="6"
+                android:layout_row="6"
+                android:text="ST"
+                android:background="#88a7e111"
+                android:padding="10dp"
+                android:layout_columnSpan="1"
+                android:layout_rowSpan="4"
+                android:layout_gravity="fill"
+                android:gravity="center"
+                android:visibility="invisible"/>
 
         </GridLayout>
         <LinearLayout
@@ -329,4 +416,4 @@
 
     </LinearLayout>
 
-<!--</ScrollView>-->
+</ScrollView>

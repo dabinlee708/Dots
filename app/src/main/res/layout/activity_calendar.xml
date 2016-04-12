@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!--<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:fillViewport="true"-->
-    <!--android:id="@+id/scrlayout">-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:id="@+id/scrlayout">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -19,9 +19,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_horizontal"
-            android:padding="10dp"
+            android:paddingTop="30dp"
             android:id="@+id/toolbar">
-
 
             <Button
                 android:layout_width="50dp"
@@ -91,6 +90,41 @@
             <!--android:onClick="onClick"-->
             <!--android:clickable="true"-->
             <!--android:layout_marginTop="5dp" />-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="right"
+            android:paddingTop="10dp"
+            android:id="@+id/views">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Month"
+                android:id="@+id/mthbtn" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:id="@+id/days">
+
+            <!--<Button-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Yest"-->
+                <!--android:id="@+id/prevbtn" />-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thursday, 12 April 2016"
+
+                android:textStyle="bold"/>
+        </LinearLayout>
 
         <GridLayout
             android:layout_width="match_parent"
@@ -178,6 +212,33 @@
                 android:layout_gravity="left|top"
                 android:layout_row="11"
                 android:text="1800"
+                android:padding="10dp" />
+
+            <TextView
+                android:layout_column="1"
+                android:layout_gravity="left|top"
+                android:layout_row="12"
+                android:text="1900"
+                android:padding="10dp" />
+
+            <TextView
+                android:layout_column="1"
+                android:layout_gravity="left|top"
+                android:layout_row="13"
+                android:text="2000"
+                android:padding="10dp" />
+
+            <TextView
+                android:layout_column="1"
+                android:layout_gravity="left|top"
+                android:layout_row="14"
+                android:text="2100"
+                android:padding="10dp" />
+            <TextView
+                android:layout_column="1"
+                android:layout_gravity="left|top"
+                android:layout_row="15"
+                android:text="2200"
                 android:padding="10dp" />
 
             <TextView
@@ -363,4 +424,4 @@
 
     </LinearLayout>
 
-<!--</ScrollView>-->
+</ScrollView>

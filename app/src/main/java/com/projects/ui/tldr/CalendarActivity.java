@@ -30,20 +30,6 @@ public class CalendarActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
-//        final ImageView caret = (ImageView) findViewById(R.id.caret);
-//        caret.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                LinearLayout toolbar = (LinearLayout) findViewById(R.id.toolbar);
-//                if (toolbar.getVisibility() == View.GONE) {
-//                    toolbar.setVisibility(View.VISIBLE);
-//                    caret.setImageResource(R.drawable.caretup);
-//                } else {
-//                    toolbar.setVisibility(View.GONE);
-//                    caret.setImageResource(R.drawable.caretdown);
-//                }
-//            }
-//        });
-
 
         final Button[] blist = {(Button)findViewById(R.id.ISTD),
                 (Button)findViewById(R.id.EPD),
@@ -67,6 +53,30 @@ public class CalendarActivity extends AppCompatActivity{
                 }
             }
         });
+
+//        Button tmr = (Button) findViewById(R.id.nextbtn);
+//        // if decline button is clicked, close the custom dialog
+//        tmr.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // Close dialog
+//                setContentView(R.layout.activity_calendar2);
+//
+//            }
+//        });
+//
+        Button nth = (Button) findViewById(R.id.mthbtn);
+        // if decline button is clicked, close the custom dialog
+        nth.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(CalendarActivity.this, MonthView.class);
+                startActivity(myIntent);
+
+            }
+        });
+
+
         //SET ONCLICK FUNCTION FOR ALL OTHER BUTTONS
         for (Button i:blist){
             i.setOnClickListener(new View.OnClickListener() {
@@ -122,26 +132,6 @@ public class CalendarActivity extends AppCompatActivity{
         return super.onTouchEvent(event);
     }
 
-//    public void onClick(Button b){
-//        Log.d("mytag", "onClick:button" + b.getText());
-//        Button[] blist = {(Button)findViewById(R.id.ISTD),
-//                (Button)findViewById(R.id.EPD),
-//                (Button)findViewById(R.id.ASD),
-//                (Button)findViewById(R.id.ESD),
-//                (Button)findViewById(R.id.fifth)};
-//
-//        if (b.getText()=="ALL"){
-//            for (Button i : blist){
-//                i.setBackgroundResource(R.drawable.circlebuttondeselected);
-//            }
-//        }
-//        else{
-//            Button button = (Button)findViewById(R.id.ALL);
-//            button.setBackgroundResource(R.drawable.circlebuttondeselected);
-//            b.setBackgroundResource(R.drawable.circlebuttonselected);
-//        }
-//    }
-
     public void onClick(View v) {
         Log.d("mytag", "onClick:text" + v.getId());
         TextView text = (TextView) findViewById(v.getId());
@@ -180,7 +170,6 @@ public class CalendarActivity extends AppCompatActivity{
                 dialog.dismiss();
             }
         });
-
 
         Button details = (Button) dialog.findViewById(R.id.detailsButton);
         // if decline button is clicked, close the custom dialog
