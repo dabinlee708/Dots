@@ -238,7 +238,7 @@ public class CalendarActivity extends AppCompatActivity{
         details.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TextView text = (TextView) findViewById(v.getId());
+
                 // Close dialog
                 Intent myIntent = new Intent(CalendarActivity.this, EventActivity.class);
                 myIntent.putExtra("T", text.getText());
