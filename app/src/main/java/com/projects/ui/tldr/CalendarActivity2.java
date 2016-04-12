@@ -1,35 +1,23 @@
 package com.projects.ui.tldr;
 
-import android.app.ActionBar;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
-import android.support.v4.view.MotionEventCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.GestureDetector;
-import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.sql.Array;
-import java.util.ArrayList;
-
-public class CalendarActivity extends AppCompatActivity{
+public class CalendarActivity2 extends AppCompatActivity{
     private float x1,x2;
     static final int MIN_DISTANCE = 150;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_calendar);
+        setContentView(R.layout.activity_calendar2);
 
         final Button[] blist = {(Button)findViewById(R.id.ISTD),
                 (Button)findViewById(R.id.EPD),
@@ -70,7 +58,7 @@ public class CalendarActivity extends AppCompatActivity{
         nth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(CalendarActivity.this, MonthView.class);
+                Intent myIntent = new Intent(CalendarActivity2.this, MonthView.class);
                 startActivity(myIntent);
 
             }
@@ -120,12 +108,12 @@ public class CalendarActivity extends AppCompatActivity{
                 float deltaX = x2 - x1;
                 if (Math.abs(deltaX) > MIN_DISTANCE && deltaX < 0)
                 {
-                    Intent myIntent = new Intent(CalendarActivity.this, CalendarActivity2.class);
-                    startActivity(myIntent);
+
                 }
                 else if (Math.abs(deltaX) > MIN_DISTANCE && deltaX > 0)
                 {
-
+                    Intent myIntent = new Intent(CalendarActivity2.this, CalendarActivity.class);
+                    startActivity(myIntent);
 
                 }
                 break;
@@ -141,7 +129,7 @@ public class CalendarActivity extends AppCompatActivity{
         final TextView selection = (TextView) findViewById(R.id.selected);
         selection.setText(text.getText());
 
-        final Dialog dialog = new Dialog(CalendarActivity.this);
+        final Dialog dialog = new Dialog(CalendarActivity2.this);
         // Include dialog.xml file
         dialog.setContentView(R.layout.dialog);
         // Set dialog title
@@ -179,7 +167,7 @@ public class CalendarActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 // Close dialog
-                Intent myIntent = new Intent(CalendarActivity.this, EventActivity.class);
+                Intent myIntent = new Intent(CalendarActivity2.this, EventActivity.class);
                 myIntent.putExtra("T", selection.getText());
                 startActivity(myIntent);
 

@@ -1,122 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:id="@+id/scrlayout">
+    tools:context="com.projects.ui.tldr.CalendarActivity2"
+    android:orientation="vertical"
+    android:background="#eeeeee">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:paddingTop="30dp"
+        android:id="@+id/toolbar">
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/circlebuttonselected"
+            android:paddingTop="8dp"
+            android:text="ALL"
+            android:textColor="#fff"
+            android:layout_marginRight="5dp"
+            android:id="@+id/ALL"/>
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/circlebuttondeselected"
+            android:paddingTop="8dp"
+            android:text="ISTD"
+            android:textColor="#fff"
+            android:layout_marginRight="5dp"
+            android:id="@+id/ISTD"/>
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/circlebuttondeselected"
+            android:paddingTop="8dp"
+            android:text="EPD"
+            android:textColor="#fff"
+            android:layout_marginRight="5dp"
+            android:id="@+id/EPD"/>
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/circlebuttondeselected"
+            android:paddingTop="8dp"
+            android:text="ASD"
+            android:textColor="#fff"
+            android:layout_marginRight="5dp"
+            android:id="@+id/ASD"/>
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/circlebuttondeselected"
+            android:paddingTop="8dp"
+            android:text="ESD"
+            android:textColor="#fff"
+            android:layout_marginRight="5dp"
+            android:id="@+id/ESD"/>
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/circlebuttondeselected"
+            android:paddingTop="8dp"
+            android:text="5th"
+            android:textColor="#fff"
+            android:id="@+id/fifth"/>
+    </LinearLayout>
+    <!--<ImageView-->
+    <!--android:layout_width="25dp"-->
+    <!--android:layout_height="25dp"-->
+    <!--android:id="@+id/caret"-->
+    <!--android:layout_gravity="center_horizontal"-->
+    <!--android:gravity="center"-->
+    <!--android:src="@drawable/caretdown"-->
+    <!--android:onClick="onClick"-->
+    <!--android:clickable="true"-->
+    <!--android:layout_marginTop="5dp" />-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="right"
+        android:paddingTop="10dp"
+        android:id="@+id/views">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Month"
+            android:id="@+id/mthbtn" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:id="@+id/days">
+
+        <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Yest"-->
+        <!--android:id="@+id/prevbtn" />-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Friday, 13 April 2016"
+
+            android:textStyle="bold"/>
+    </LinearLayout>
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.projects.ui.tldr.CalendarActivity"
-        android:orientation="vertical"
-        android:background="#eeeeee">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_horizontal"
-            android:paddingTop="30dp"
-            android:id="@+id/toolbar">
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circlebuttonselected"
-                android:paddingTop="8dp"
-                android:text="ALL"
-                android:textColor="#fff"
-                android:layout_marginRight="5dp"
-                android:id="@+id/ALL"/>
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circlebuttondeselected"
-                android:paddingTop="8dp"
-                android:text="ISTD"
-                android:textColor="#fff"
-                android:layout_marginRight="5dp"
-                android:id="@+id/ISTD"/>
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circlebuttondeselected"
-                android:paddingTop="8dp"
-                android:text="EPD"
-                android:textColor="#fff"
-                android:layout_marginRight="5dp"
-                android:id="@+id/EPD"/>
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circlebuttondeselected"
-                android:paddingTop="8dp"
-                android:text="ASD"
-                android:textColor="#fff"
-                android:layout_marginRight="5dp"
-                android:id="@+id/ASD"/>
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circlebuttondeselected"
-                android:paddingTop="8dp"
-                android:text="ESD"
-                android:textColor="#fff"
-                android:layout_marginRight="5dp"
-                android:id="@+id/ESD"/>
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circlebuttondeselected"
-                android:paddingTop="8dp"
-                android:text="5th"
-                android:textColor="#fff"
-                android:id="@+id/fifth"/>
-        </LinearLayout>
-        <!--<ImageView-->
-        <!--android:layout_width="25dp"-->
-        <!--android:layout_height="25dp"-->
-        <!--android:id="@+id/caret"-->
-        <!--android:layout_gravity="center_horizontal"-->
-        <!--android:gravity="center"-->
-        <!--android:src="@drawable/caretdown"-->
-        <!--android:onClick="onClick"-->
-        <!--android:clickable="true"-->
-        <!--android:layout_marginTop="5dp" />-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_horizontal"
-            android:paddingTop="10dp"
-            android:id="@+id/days">
-
-            <!--<Button-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Yest"-->
-                <!--android:id="@+id/prevbtn" />-->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Friday, 13 April 2016"
-                android:textStyle="bold"/>
-            <!--<Button-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Tmr"-->
-                <!--android:id="@+id/nextbtn" />-->
-
-
-
-        </LinearLayout>
+        android:fillViewport="true"
+        android:id="@+id/scrlayout">
 
         <GridLayout
             android:layout_width="match_parent"
@@ -390,30 +399,30 @@
                 android:visibility="invisible"/>
 
         </GridLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
+    </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:padding="10dp">
+
+        <TextView
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_horizontal"
-            android:padding="10dp">
+            android:layout_width="wrap_content"
+            android:text=""
+            android:padding="10dp"
+            android:visibility="gone"
+            android:id="@+id/selected"/>
 
-            <TextView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text=""
-                android:padding="10dp"
-                android:visibility="gone"
-                android:id="@+id/selected"/>
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="View Details"
-                android:visibility="gone"
-                android:id="@+id/button" />
-
-        </LinearLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View Details"
+            android:visibility="gone"
+            android:id="@+id/button" />
 
     </LinearLayout>
 
-</ScrollView>
+</LinearLayout>
+
