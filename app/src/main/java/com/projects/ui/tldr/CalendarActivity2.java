@@ -1,35 +1,23 @@
 package com.projects.ui.tldr;
 
-import android.app.ActionBar;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
-import android.support.v4.view.MotionEventCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.GestureDetector;
-import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.sql.Array;
-import java.util.ArrayList;
-
-public class CalendarActivity extends AppCompatActivity{
+public class CalendarActivity2 extends AppCompatActivity{
     private float x1,x2;
     static final int MIN_DISTANCE = 150;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_calendar);
+        setContentView(R.layout.activity_calendar2);
 
         final Button[] blist = {(Button)findViewById(R.id.ISTD),
                 (Button)findViewById(R.id.EPD),
@@ -70,7 +58,7 @@ public class CalendarActivity extends AppCompatActivity{
         nth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(CalendarActivity.this, MonthView.class);
+                Intent myIntent = new Intent(CalendarActivity2.this, MonthView.class);
                 startActivity(myIntent);
 
             }
@@ -90,15 +78,17 @@ public class CalendarActivity extends AppCompatActivity{
                         j.setVisibility(View.GONE);
                     }
 
+                    //THIS LINE OF CODE DOESN'T WORK FOR SOME REASON
                     if(b.getText().equals("ISTD")){
                         findViewById(R.id.study).setVisibility(View.VISIBLE);
                     }
-
+                    //THIS LINE OF CODE DOESN'T WROK
                     else if(b.getText().equals("5th")){
                         findViewById(R.id.chill).setVisibility(View.VISIBLE);
                         findViewById(R.id.musicbox).setVisibility(View.VISIBLE);
                     }
                     else{
+
                     }
                 }
             });
@@ -118,12 +108,12 @@ public class CalendarActivity extends AppCompatActivity{
                 float deltaX = x2 - x1;
                 if (Math.abs(deltaX) > MIN_DISTANCE && deltaX < 0)
                 {
-                    Intent myIntent = new Intent(CalendarActivity.this, CalendarActivity2.class);
-                    startActivity(myIntent);
+
                 }
                 else if (Math.abs(deltaX) > MIN_DISTANCE && deltaX > 0)
                 {
-
+                    Intent myIntent = new Intent(CalendarActivity2.this, CalendarActivity.class);
+                    startActivity(myIntent);
 
                 }
                 break;
@@ -139,34 +129,29 @@ public class CalendarActivity extends AppCompatActivity{
         final TextView selection = (TextView) findViewById(R.id.selected);
         selection.setText(text.getText());
 
-        final Dialog dialog = new Dialog(CalendarActivity.this);
+        final Dialog dialog = new Dialog(CalendarActivity2.this);
         // Include dialog.xml file
         dialog.setContentView(R.layout.dialog);
         // Set dialog title
-
+        dialog.setTitle("Custom Dialog");
 
         // set values for custom dialog components - text, image and button
-        //TextView title = (TextView) dialog.findViewById(R.id.title);
-        dialog.setTitle(selection.getText());
-//        title.setText(selection.getText());
-        //title.setGravity(View.TEXT_ALIGNMENT_CENTER);
+        TextView title = (TextView) dialog.findViewById(R.id.title);
+        title.setText(selection.getText());
         TextView eventDetails = (TextView) dialog.findViewById(R.id.details);
         eventDetails.setText("Need to dynamically add hardcoded details for the events based on the available choices.\nPerhaps choose a few to demo.");
-        eventDetails.setGravity(View.TEXT_ALIGNMENT_CENTER);
-        ImageView image = (ImageView) dialog.findViewById(R.id.logo2);
-        image.setImageResource(R.drawable.money);
-        ImageView image2 = (ImageView) dialog.findViewById(R.id.logo3);
-        image2.setImageResource(R.drawable.people9);
-//        ImageView image3 = (ImageView) dialog.findViewById(R.id.logo3);
-//        image3.setImageResource(R.drawable.nomoney);
-//        ImageView image4 = (ImageView) dialog.findViewById(R.id.logo4);
-//        image4.setImageResource(R.drawable.night);
-
+        ImageView image = (ImageView) dialog.findViewById(R.id.logo);
+        image.setImageResource(R.drawable.noon);
+        ImageView image2 = (ImageView) dialog.findViewById(R.id.logo2);
+        image2.setImageResource(R.drawable.money);
+        ImageView image3 = (ImageView) dialog.findViewById(R.id.logo3);
+        image3.setImageResource(R.drawable.nomoney);
+        ImageView image4 = (ImageView) dialog.findViewById(R.id.logo4);
+        image4.setImageResource(R.drawable.night);
 
         dialog.show();
 
         Button accept = (Button) dialog.findViewById(R.id.acceptButton);
-        accept.setBackgroundResource(R.drawable.tick);
         // if decline button is clicked, close the custom dialog
         accept.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -177,13 +162,12 @@ public class CalendarActivity extends AppCompatActivity{
         });
 
         Button details = (Button) dialog.findViewById(R.id.detailsButton);
-        details.setBackgroundResource(R.drawable.redirect);
         // if decline button is clicked, close the custom dialog
         details.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Close dialog
-                Intent myIntent = new Intent(CalendarActivity.this, EventActivity.class);
+                Intent myIntent = new Intent(CalendarActivity2.this, EventActivity.class);
                 myIntent.putExtra("T", selection.getText());
                 startActivity(myIntent);
 
