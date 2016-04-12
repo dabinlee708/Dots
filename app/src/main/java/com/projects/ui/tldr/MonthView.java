@@ -19,9 +19,9 @@ public class MonthView extends AppCompatActivity {
         cal.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
-                Toast.makeText(getBaseContext(),"Selected Date is\n\n" + dayOfMonth + " / " + month + " / " + year, Toast.LENGTH_LONG).show();
+                //Toast.makeText(getBaseContext(),"Selected Date is\n\n" + dayOfMonth + " / " + month + " / " + year, Toast.LENGTH_LONG).show();
                 Intent intentMonthtoDay = new Intent(MonthView.this, CalendarActivity.class);
-                intentMonthtoDay.putExtra("DATE",cal.getDate());
+                intentMonthtoDay.putExtra("DATE",""+dayOfMonth + " / " + month + " / " + year);
                 startActivity(intentMonthtoDay);
             }
         });

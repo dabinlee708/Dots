@@ -4,13 +4,13 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <!--<TextView-->
-        <!--android:id="@+id/title"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:textStyle="bold"-->
-        <!--android:textSize="20dp"-->
-        <!--android:gravity="center"/>-->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:gravity="center"/>
 
     <TextView
         android:id="@+id/details"
@@ -60,7 +60,8 @@
             android:gravity="left"
             android:layout_marginTop="5dp"
             android:layout_marginRight="5dp"
-            android:padding="10dp"/>
+            android:padding="10dp"
+            android:onClick="accept"/>
 
         <Button
             android:id="@+id/detailsButton"

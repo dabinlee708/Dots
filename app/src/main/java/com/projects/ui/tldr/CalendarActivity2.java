@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class CalendarActivity2 extends AppCompatActivity{
     private float x1,x2;
@@ -28,7 +29,7 @@ public class CalendarActivity2 extends AppCompatActivity{
                 (Button)findViewById(R.id.ESD),
                 (Button)findViewById(R.id.fifth)};
         final TextView[] tlist = {(TextView) findViewById(R.id.musicbox),
-                            (TextView) findViewById(R.id.study),
+//                            (TextView) findViewById(R.id.study),
                             (TextView) findViewById(R.id.chill)};
 
         //SET ONCLICK FUNCTION FOR ALL
@@ -68,7 +69,7 @@ public class CalendarActivity2 extends AppCompatActivity{
 
                     //THIS LINE OF CODE DOESN'T WORK FOR SOME REASON
                     if(b.getText().equals("ISTD")){
-                        findViewById(R.id.study).setVisibility(View.VISIBLE);
+//                        findViewById(R.id.study).setVisibility(View.VISIBLE);
                     }
                     //THIS LINE OF CODE DOESN'T WROK
                     else if(b.getText().equals("5th")){
@@ -121,12 +122,26 @@ public class CalendarActivity2 extends AppCompatActivity{
 
 
         // set values for custom dialog components - text, image and button
-        //TextView title = (TextView) dialog.findViewById(R.id.title);
+        TextView title = (TextView) dialog.findViewById(R.id.title);
         dialog.setTitle(text.getText());
-//        title.setText(selection.getText());
-        //title.setGravity(View.TEXT_ALIGNMENT_CENTER);
         TextView eventDetails = (TextView) dialog.findViewById(R.id.details);
-        eventDetails.setText("Need to dynamically add hardcoded details for the events based on the available choices.\nPerhaps choose a few to demo.");
+        TextView text2 = (TextView) findViewById(v.getId());
+        String a = ""+text2.getText();
+        if (a.equals("CT")){
+            title.setText("OMS X - The Finale");
+            eventDetails.setText("TEST OMS TEXT TEST OMS TEXT\nTEST OMS TEXTTEST OMS TEXT");
+        }
+        else if (a.equals("MB")){
+            title.setText("The Music Box");
+            eventDetails.setText("TEXT MUSIC BOX");
+        }
+        else if (a.equals("CAP")){
+            title.setText("Chill Time");
+            eventDetails.setText("TEST CTFO TEXT TEST CTFO TEXT\n" +
+                    "TEST CTFO TEXT TEST CTFO TEXT");
+        }
+
+        title.setGravity(View.TEXT_ALIGNMENT_CENTER);
         eventDetails.setGravity(View.TEXT_ALIGNMENT_CENTER);
         ImageView image = (ImageView) dialog.findViewById(R.id.logo2);
         image.setImageResource(R.drawable.money);
@@ -147,6 +162,16 @@ public class CalendarActivity2 extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 // Close dialog
+                String a = ""+text.getText();
+                switch(a) {
+                    case ("MB"):
+                        TextView oms = (TextView) findViewById(R.id.musicbox);
+                        oms.setVisibility(View.INVISIBLE);
+                        TextView oms2 = (TextView) findViewById(R.id.musicbox2);
+                        oms2.setVisibility(View.VISIBLE);
+                        TextView back = (TextView) findViewById(R.id.backgrey);
+                        back.setVisibility(View.INVISIBLE);
+                }
                 dialog.dismiss();
             }
         });

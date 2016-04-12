@@ -53,7 +53,6 @@ public class CalendarActivity extends AppCompatActivity{
         @Override
         public void onReady() {
             Toast.makeText(CalendarActivity.this, "Identify state is ready", Toast.LENGTH_SHORT);
-
         }
 
         @Override
@@ -74,11 +73,19 @@ public class CalendarActivity extends AppCompatActivity{
         }
     };
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
+
+        try{
+            Intent newIntent = getIntent();
+            String title = newIntent.getExtras().getString("DATE");
+            TextView titleEvent = (TextView) findViewById(R.id.datecurrent);
+            titleEvent.setText(title);
+        } catch(Exception e) {
+            Log.d("intentcalendar","intent does not exist");
+        }
 
         final Button[] blist = {(Button)findViewById(R.id.ISTD),
                 (Button)findViewById(R.id.EPD),
@@ -158,7 +165,6 @@ public class CalendarActivity extends AppCompatActivity{
                 else if (Math.abs(deltaX) > MIN_DISTANCE && deltaX > 0)
                 {
 
-
                 }
                 break;
 
@@ -170,8 +176,6 @@ public class CalendarActivity extends AppCompatActivity{
         Log.d("mytag", "onClick:text" + v.getId());
         final TextView text = (TextView) findViewById(v.getId());
 
-
-
         final Dialog dialog = new Dialog(CalendarActivity.this);
         // Include dialog.xml file
         dialog.setContentView(R.layout.dialog);
@@ -179,12 +183,29 @@ public class CalendarActivity extends AppCompatActivity{
 
 
         // set values for custom dialog components - text, image and button
-        //TextView title = (TextView) dialog.findViewById(R.id.title);
+        TextView title = (TextView) dialog.findViewById(R.id.title);
         dialog.setTitle(text.getText());
-//        title.setText(selection.getText());
-        //title.setGravity(View.TEXT_ALIGNMENT_CENTER);
         TextView eventDetails = (TextView) dialog.findViewById(R.id.details);
-        eventDetails.setText("Need to dynamically add hardcoded details for the events based on the available choices.\nPerhaps choose a few to demo.");
+        TextView text2 = (TextView) findViewById(v.getId());
+        String a = ""+text2.getText();
+        if (a.equals("OX")){
+            title.setText("OMS X - The Finale");
+            eventDetails.setText("TEST OMS TEXT TEST OMS TEXT\nTEST OMS TEXTTEST OMS TEXT");
+        }
+        else if (a.equals("SLP")){
+            Toast.makeText(CalendarActivity.this, a, Toast.LENGTH_LONG).show();
+            title.setText("The Music Box");
+            eventDetails.setText("TEXT MUSIC BOX");
+        }
+        else if (a.equals("CT")){
+            Toast.makeText(CalendarActivity.this, a, Toast.LENGTH_LONG).show();
+            title.setText("Chill Time");
+            eventDetails.setText("TEST CTFO TEXT TEST CTFO TEXT\n" +
+                    "TEST CTFO TEXT TEST CTFO TEXT");
+        }
+
+
+        title.setGravity(View.TEXT_ALIGNMENT_CENTER);
         eventDetails.setGravity(View.TEXT_ALIGNMENT_CENTER);
         ImageView image = (ImageView) dialog.findViewById(R.id.logo2);
         image.setImageResource(R.drawable.money);
@@ -194,9 +215,9 @@ public class CalendarActivity extends AppCompatActivity{
 //        image3.setImageResource(R.drawable.nomoney);
 //        ImageView image4 = (ImageView) dialog.findViewById(R.id.logo4);
 //        image4.setImageResource(R.drawable.night);
-
-
         dialog.show();
+
+
         mContext = this;
         Button accept = (Button) dialog.findViewById(R.id.acceptButton);
         accept.setBackgroundResource(R.drawable.tick);
@@ -205,9 +226,6 @@ public class CalendarActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 // Close dialog
-
-
-
                 try {
                     mSpassFingerprint = new SpassFingerprint(CalendarActivity.this);
                     mSpassFingerprint.setDialogBgTransparency(0);
@@ -217,44 +235,43 @@ public class CalendarActivity extends AppCompatActivity{
                 } catch (Exception e) {
                     Toast.makeText(CalendarActivity.this, "Automatic override for authetntication", Toast.LENGTH_LONG).show();
                     successAuth = true;
-                }
-
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        Intent i = new Intent(CalendarActivity.this, CalendarActivity.class);
-                        startActivity(i);
+                    String a = ""+text.getText();
+                    switch(a) {
+                        case ("OX"):
+                            TextView oms = (TextView) findViewById(R.id.study);
+                            oms.setVisibility(View.INVISIBLE);
+                            TextView oms2 = (TextView) findViewById(R.id.study2);
+                            oms2.setVisibility(View.VISIBLE);
                     }
-                }, 2000);
+
+
+                    dialog.dismiss();
+                }
+//                new Handler().postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        Intent i = new Intent(CalendarActivity.this, CalendarActivity.class);
+//
+//                        startActivity(i);
+//                    }
+//                }, 2000);
             }
         });
 
 
 
-
+        //Btn to go to EventDetails page from Calendar page
         Button details = (Button) dialog.findViewById(R.id.detailsButton);
         details.setBackgroundResource(R.drawable.redirect);
         // if decline button is clicked, close the custom dialog
         details.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 // Close dialog
                 Intent myIntent = new Intent(CalendarActivity.this, EventActivity.class);
                 myIntent.putExtra("T", text.getText());
                 startActivity(myIntent);
-
             }
         });
-
-
-
-//        ScrollView scr = (ScrollView) findViewById(R.id.scrlayout);
-//        scr.fullScroll(ScrollView.FOCUS_DOWN);
-
-
     }
-
-
-
 }
