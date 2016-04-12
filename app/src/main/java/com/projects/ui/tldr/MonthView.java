@@ -1,6 +1,7 @@
 package com.projects.ui.tldr;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.CalendarView;
@@ -19,6 +20,9 @@ public class MonthView extends AppCompatActivity {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
                 Toast.makeText(getBaseContext(),"Selected Date is\n\n" + dayOfMonth + " / " + month + " / " + year, Toast.LENGTH_LONG).show();
+                Intent intentMonthtoDay = new Intent(MonthView.this, CalendarActivity.class);
+                intentMonthtoDay.putExtra("DATE",cal.getDate());
+                startActivity(intentMonthtoDay);
             }
         });
 
