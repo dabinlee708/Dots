@@ -156,6 +156,7 @@ public class CalendarActivity2 extends AppCompatActivity{
         accept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 // Close dialog
                 dialog.dismiss();
             }

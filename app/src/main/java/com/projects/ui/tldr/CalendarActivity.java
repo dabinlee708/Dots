@@ -4,6 +4,8 @@ import android.app.ActionBar;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
+import android.provider.CalendarContract;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,12 +22,58 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.samsung.android.sdk.pass.Spass;
+import com.samsung.android.sdk.pass.SpassFingerprint;
+
 import java.sql.Array;
 import java.util.ArrayList;
 
 public class CalendarActivity extends AppCompatActivity{
     private float x1,x2;
     static final int MIN_DISTANCE = 150;
+    private boolean onReadyIdentify = false;
+    private SpassFingerprint mSpassFingerprint;
+    private Spass spass;
+    private Context mContext;
+    boolean isFeatureEnabled = false;
+    boolean successAuth;
+
+    private SpassFingerprint.IdentifyListener listener = new SpassFingerprint.IdentifyListener() {
+        @Override
+        public void onFinished(int eventStatus) {
+            onReadyIdentify = false;
+            if(eventStatus==SpassFingerprint.STATUS_AUTHENTIFICATION_SUCCESS||eventStatus==SpassFingerprint.STATUS_AUTHENTIFICATION_PASSWORD_SUCCESS){
+                Toast.makeText(CalendarActivity.this, "Authentication success", Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(CalendarActivity.this, "Authentication fail", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+        @Override
+        public void onReady() {
+            Toast.makeText(CalendarActivity.this, "Identify state is ready", Toast.LENGTH_SHORT);
+
+        }
+
+        @Override
+        public void onStarted() {
+            Toast.makeText(CalendarActivity.this, "Fingerprint sensor touched", Toast.LENGTH_SHORT);
+        }
+
+        @Override
+        public void onCompleted() {
+
+        }
+    };
+
+    private SpassFingerprint.RegisterListener mRegisterListener = new SpassFingerprint.RegisterListener(){
+        @Override
+        public void onFinished(){
+            Toast.makeText(CalendarActivity.this, "Register listener finished", Toast.LENGTH_SHORT).show();
+        }
+    };
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -164,7 +212,7 @@ public class CalendarActivity extends AppCompatActivity{
 
 
         dialog.show();
-
+        mContext = this;
         Button accept = (Button) dialog.findViewById(R.id.acceptButton);
         accept.setBackgroundResource(R.drawable.tick);
         // if decline button is clicked, close the custom dialog
@@ -172,9 +220,32 @@ public class CalendarActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 // Close dialog
-                dialog.dismiss();
+
+
+
+                try {
+                    mSpassFingerprint = new SpassFingerprint(CalendarActivity.this);
+                    mSpassFingerprint.setDialogBgTransparency(0);
+                    spass = new Spass();
+                    spass.initialize(mContext);
+                    mSpassFingerprint.startIdentifyWithDialog(mContext, listener, successAuth);
+                } catch (Exception e) {
+                    Toast.makeText(CalendarActivity.this, "Automatic override for authetntication", Toast.LENGTH_LONG).show();
+                    successAuth = true;
+                }
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent i = new Intent(CalendarActivity.this, CalendarActivity.class);
+                        startActivity(i);
+                    }
+                }, 2000);
             }
         });
+
+
+
 
         Button details = (Button) dialog.findViewById(R.id.detailsButton);
         details.setBackgroundResource(R.drawable.redirect);
