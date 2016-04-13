@@ -409,12 +409,7 @@
                 android:src="@android:drawable/ic_menu_more"
                 android:background="?android:attr/selectableItemBackground"
                 app:layout_anchorGravity="bottom|left|end"/>
-
         </LinearLayout>
     </RelativeLayout>
-
-
-
-
 </LinearLayout>
 
