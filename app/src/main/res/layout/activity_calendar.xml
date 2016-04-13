@@ -389,7 +389,6 @@
                     android:layout_gravity="fill"
                     android:gravity="center"
                     android:visibility="invisible"/>
-
             </GridLayout>
         </ScrollView>
 
