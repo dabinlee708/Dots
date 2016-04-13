@@ -100,6 +100,8 @@ public class CalendarActivity extends AppCompatActivity{
         Button b = (Button) findViewById(R.id.ALL);
         b.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
+                findViewById(R.id.boo).setEnabled(Boolean.TRUE);
                 v.setBackgroundResource(R.drawable.circlebuttonselected);
                 for (Button i: blist){
                     i.setBackgroundResource(R.drawable.circlebuttondeselected);
@@ -124,11 +126,16 @@ public class CalendarActivity extends AppCompatActivity{
                 public void onClick(View v) {
                     Button b = (Button)v;
                     Log.d("mytag", "onClick:button" +b.getText());
+                    Log.d("mytag", "onClick:button" +b.getBackground());
 
                     findViewById(R.id.ALL).setBackgroundResource(R.drawable.circlebuttondeselected);
                     v.setBackgroundResource(R.drawable.circlebuttonselected);
-                    for (TextView j: tlist) {
-                        j.setVisibility(View.GONE);
+
+                    if (findViewById(R.id.boo).isEnabled()) {
+                        for (TextView j : tlist) {
+                            j.setVisibility(View.GONE);
+                        }
+                        findViewById(R.id.boo).setEnabled(Boolean.FALSE);
                     }
 
                     if(b.getText().equals("ISTD")){
