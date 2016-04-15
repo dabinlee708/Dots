@@ -129,16 +129,16 @@ public class CalendarActivity2 extends AppCompatActivity{
         String a = ""+text2.getText();
         if (a.equals("CT")){
             title.setText("OMS X - The Finale");
-            eventDetails.setText("TEST OMS TEXT TEST OMS TEXT\nTEST OMS TEXTTEST OMS TEXT");
+            eventDetails.setText("Open Mic Session\nBrought to you by SUTD Bands");
         }
         else if (a.equals("MB")){
             title.setText("The Music Box");
-            eventDetails.setText("TEXT MUSIC BOX");
+            eventDetails.setText("Just Dance Dance Dance");
         }
         else if (a.equals("CAP")){
             title.setText("Chill Time");
-            eventDetails.setText("TEST CTFO TEXT TEST CTFO TEXT\n" +
-                    "TEST CTFO TEXT TEST CTFO TEXT");
+            eventDetails.setText("Thank God It's Friday\n" +
+                    "Nothing good about this Fri though");
         }
 
         title.setGravity(View.TEXT_ALIGNMENT_CENTER);

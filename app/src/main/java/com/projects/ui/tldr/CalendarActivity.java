@@ -197,18 +197,19 @@ public class CalendarActivity extends AppCompatActivity{
         String a = ""+text2.getText();
         if (a.equals("OX")){
             title.setText("OMS X - The Finale");
-            eventDetails.setText("TEST OMS TEXT TEST OMS TEXT\nTEST OMS TEXTTEST OMS TEXT");
+            eventDetails.setText("Open Mic Session\n" +
+                    "Brought to you by SUTD Bands");
         }
         else if (a.equals("SLP")){
-            Toast.makeText(CalendarActivity.this, a, Toast.LENGTH_LONG).show();
+
             title.setText("The Music Box");
-            eventDetails.setText("TEXT MUSIC BOX");
+            eventDetails.setText("Just Dance Dance Dance");
         }
         else if (a.equals("CT")){
-            Toast.makeText(CalendarActivity.this, a, Toast.LENGTH_LONG).show();
+
             title.setText("Chill Time");
-            eventDetails.setText("TEST CTFO TEXT TEST CTFO TEXT\n" +
-                    "TEST CTFO TEXT TEST CTFO TEXT");
+            eventDetails.setText("Thank God It's Friday\n" +
+                    "Nothing good about this Fri though");
         }
 
 
@@ -239,6 +240,14 @@ public class CalendarActivity extends AppCompatActivity{
                     spass = new Spass();
                     spass.initialize(mContext);
                     mSpassFingerprint.startIdentifyWithDialog(mContext, listener, successAuth);
+                    String a = ""+text.getText();
+                    switch(a) {
+                        case ("OX"):
+                            TextView oms = (TextView) findViewById(R.id.study);
+                            oms.setVisibility(View.INVISIBLE);
+                            TextView oms2 = (TextView) findViewById(R.id.study2);
+                            oms2.setVisibility(View.VISIBLE);
+                    }
                 } catch (Exception e) {
                     Toast.makeText(CalendarActivity.this, "Automatic override for authetntication", Toast.LENGTH_LONG).show();
                     successAuth = true;
