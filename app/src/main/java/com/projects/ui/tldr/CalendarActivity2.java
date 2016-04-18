@@ -140,6 +140,10 @@ public class CalendarActivity2 extends AppCompatActivity{
             eventDetails.setText("Thank God It's Friday\n" +
                     "Nothing good about this Fri though");
         }
+        else {
+            title.setText("Event Title");
+            eventDetails.setText("This is where the short desc is");
+        }
 
         title.setGravity(View.TEXT_ALIGNMENT_CENTER);
         eventDetails.setGravity(View.TEXT_ALIGNMENT_CENTER);
@@ -177,6 +181,7 @@ public class CalendarActivity2 extends AppCompatActivity{
         });
 
         Button details = (Button) dialog.findViewById(R.id.detailsButton);
+        details.setBackgroundResource(R.drawable.redirect);
         // if decline button is clicked, close the custom dialog
         details.setOnClickListener(new View.OnClickListener() {
             @Override

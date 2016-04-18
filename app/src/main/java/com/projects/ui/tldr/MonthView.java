@@ -21,6 +21,7 @@ public class MonthView extends AppCompatActivity {
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
                 //Toast.makeText(getBaseContext(),"Selected Date is\n\n" + dayOfMonth + " / " + month + " / " + year, Toast.LENGTH_LONG).show();
                 Intent intentMonthtoDay = new Intent(MonthView.this, CalendarActivity.class);
+                month = ((int) month) +((int)1);
                 intentMonthtoDay.putExtra("DATE",""+dayOfMonth + " / " + month + " / " + year);
                 startActivity(intentMonthtoDay);
             }

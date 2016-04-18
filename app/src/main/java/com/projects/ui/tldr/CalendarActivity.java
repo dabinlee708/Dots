@@ -211,6 +211,10 @@ public class CalendarActivity extends AppCompatActivity{
             eventDetails.setText("Thank God It's Friday\n" +
                     "Nothing good about this Fri though");
         }
+        else {
+            title.setText("Event Title");
+            eventDetails.setText("This is where the short desc is");
+        }
 
 
         title.setGravity(View.TEXT_ALIGNMENT_CENTER);
